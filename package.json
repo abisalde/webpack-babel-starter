@@ -1,0 +1,22 @@
+{
+    "name": "bundle-env",
+    "version": "1.0.0",
+    "description": "Test environment for bundle",
+    "author": "Isaiah Abiodun",
+    "license": "MIT",
+    "private": true,
+    "scripts": {
+        "test": "echo \"Error: no test specified \" && exit 1",
+        "start:dev": "webpack serve",
+        "build": "webpack"
+    },
+    "devDependencies": {
+        "html-webpack-plugin": "^5.3.2",
+        "webpack": "^5.50.0",
+        "webpack-cli": "^4.8.0",
+        "webpack-dev-server": "^3.11.2"
+    },
+    "dependencies": {
+        "lodash": "^4.17.21"
+    }
+}
