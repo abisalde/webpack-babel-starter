@@ -6,7 +6,7 @@ module.exports = (env, argv) => ({
         main: './src/index.js',
     },
     mode: 'none' || 'development',
-    devtool: argv.mode === 'none' || 'production' ? false : 'inline-source-map',
+    devtool: argv.mode === 'none' || 'production' ? false : 'source-map',
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Webpack Babel',
@@ -33,7 +33,7 @@ module.exports = (env, argv) => ({
                 },
                 {
                     property: 'og:url',
-                    content: 'https://html5boilerplate.com/',
+                    content: 'https://github.com/abisalde',
                 },
                 {
                     property: 'og:description',

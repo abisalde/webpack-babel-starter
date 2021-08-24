@@ -1,13 +1,4 @@
-import _ from 'lodash';
 import './asset/index.css';
-import HomeLoad from './asset/js/test';
+import { AppComponent } from './asset/js/homeTest';
 
-const App = () => {
-    const element = document.createElement('div');
-
-    element.appendChild(HomeLoad);
-
-    return element;
-};
-
-document.body.appendChild(App());
+AppComponent.init();
