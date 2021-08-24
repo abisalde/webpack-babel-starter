@@ -1,18 +1,53 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
-    mode: 'none',
-    entry: './src/index.js',
+module.exports = (env, argv) => ({
+    entry: {
+        main: './src/index.js',
+    },
+    mode: 'none' || 'development',
+    devtool: argv.mode === 'none' || 'production' ? false : 'inline-source-map',
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Webpack Babel',
+            filename: 'index.html',
+            template: './public/index.html',
+            inject: false,
+            hash: true,
+            cache: true,
+            meta: [
+                {
+                    charset: 'utf-8',
+                },
+                {
+                    viewport:
+                        'width=device-width, initial-scale=1.0, shrink-to-fit=no',
+                },
+                {
+                    'http-equiv': 'X-UA-Compatible',
+                    content: 'ie=edge',
+                },
+                {
+                    name: 'theme-color',
+                    content: '#495121',
+                },
+                {
+                    property: 'og:url',
+                    content: 'https://html5boilerplate.com/',
+                },
+                {
+                    property: 'og:description',
+                    content: 'Just a App',
+                },
+            ],
+            scriptLoading: 'defer',
         }),
     ],
     output: {
-        filename: 'bundle.js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
         clean: true,
+        publicPath: '/',
     },
     module: {
         rules: [
@@ -29,7 +64,7 @@ module.exports = {
                 type: 'asset/resource',
             },
             {
-                test: /\.m?js$/,
+                test: /\.js$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
@@ -46,4 +81,4 @@ module.exports = {
         host: 'localhost',
         port: 4040,
     },
-};
+});

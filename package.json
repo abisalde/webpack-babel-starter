@@ -7,8 +7,9 @@
     "private": true,
     "scripts": {
         "test": "echo \"Error: no test specified \" && exit 1",
-        "start:dev": "webpack serve",
-        "build": "webpack"
+        "start:dev": "webpack serve --open && yarn run watch",
+        "build": "webpack",
+        "watch": "webpack --watch"
     },
     "devDependencies": {
         "@babel/core": "^7.15.0",
