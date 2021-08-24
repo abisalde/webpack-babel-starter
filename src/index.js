@@ -1,15 +1,13 @@
 import _ from 'lodash';
 import './asset/index.css';
+import HomeLoad from './asset/js/test';
 
-const homePage = () => {
-    const htmlElem = document.createElement('h1');
+const App = () => {
+    const element = document.createElement('div');
 
-    htmlElem.innerHTML = _.join(
-        ['Hello', 'Webpack-Babel-WE', 'Lagos City'],
-        ' '
-    );
-    htmlElem.classList.add('heading');
-    return htmlElem;
+    element.appendChild(HomeLoad);
+
+    return element;
 };
 
-document.body.appendChild(homePage());
+document.body.appendChild(App());
