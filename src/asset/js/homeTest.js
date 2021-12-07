@@ -1,26 +1,34 @@
 import { HomeLoad } from './test';
 import { Model } from './model';
+import { getUsername } from './data';
 
 export const AppComponent = {
     init() {
         this.appELem = document.querySelector('#root');
         this.render();
         this.getValue();
+        this.handleSearchValue();
+    },
+    handleSearchValue() {
+        let searchValue = ' ';
+        handleInputChange = (e) => {
+            searchValue = e.target.value;
+            return searchValue;
+        };
+        findUser.addEventListener('change', handleInputChange);
+        getUsername(searchValue);
     },
     getValue() {
-        let searchValue = ' ';
-        const searchInput = document.querySelector('#search');
-        const onKeyDown = document.querySelector('form');
-        searchInput.addEventListener('input', (e) => {
-            e.preventDefault();
-            searchValue = e.target.value;
-            onKeyDown.addEventListener('submit', (e) => {
-                e.preventDefault();
-                let displayItem = document.querySelector('#text');
-                displayItem.innerText = searchValue;
+        const htmlSelectors = (selector) => document.querySelector(selector);
 
-                return displayItem;
-            });
+        const findUser = htmlSelectors('#search-user');
+        const submitForm = htmlSelectors('#submit-btn');
+        submitForm.addEventListener('click', handleSearchValue);
+        findUser.addEventListener('input', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                handleSearchValue();
+            }
         });
     },
     render() {

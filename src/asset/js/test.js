@@ -1,8 +1,6 @@
 export const HomeLoad = (test) =>
     `<form>
-        <div class="form-group">
-            <input type="text" class="form-control" id="search" placeholder="Search Profile" name="search" required />
-            <button class="btn btn-submit">${test.title}</button>
-        </div>
-    </form
+    <input type="text" name="search" placeholder="search username" id="search-user" />
+    <button type="submit" id="submit-btn">${test.title}</button>
+</form>
     `;
